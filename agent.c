@@ -46,6 +46,14 @@ void print_agent(Agent *agents, int agent_id, int num_agents){
             printf("Position: (%.2f, %.2f)\n", agents[agent_num].x, agents[agent_num].y);
             printf("\n");
         }
+    }else{
+            printf("Gerievance: %.2f\n", agents[agent_id].grievance);
+            printf("Legitamacy: %.2f\n", agents[agent_id].legitimacy);
+            printf("hardship: %.2f\n", agents[agent_id].hardship);
+            printf("Likelihood: %.2f\n", agents[agent_id].likelihood);
+            printf("State: %s\n", enum_to_str(agents[agent_id].state));
+            printf("Position: (%.2f, %.2f)\n", agents[agent_id].x, agents[agent_id].y);
+            printf("\n");
     }
 }
 
@@ -57,15 +65,4 @@ const char* enum_to_str(AgentState s){
     }
 }
 
-int main(){
-    srand(time(0));
-    Agent agents[5];
-    int num_agents = 5;
-    int agent_id = -1;
-    int LengthBoard = 10;
-    create_agents(agents, num_agents, LengthBoard);
 
-    //printf("%u\n", agents[0].x);
-    print_agent(agents, agent_id, num_agents);
-    return 0;
-}
