@@ -23,12 +23,12 @@ void create_agents(Agent agents[], int num_agents) {
     }
 }
 
-void print_agent(Agent *agents, int agent_id){
-    int num_agents = sizeof(agents) / sizeof(agents[0]);
+void print_agent(Agent *agents, int agent_id, int num_agents){
+    //int num_agents = sizeof(agents) / sizeof(agents[0]);
 
     if (agent_id == -1){
-        for (int agent_num; agent_num < num_agents; agent_num++){
-            printf("ID: %d\n", agents[agent_num].grievance);
+        for (int agent_num = 0; agent_num < num_agents; agent_num++){
+            printf("ID: %.2f\n", agents[agent_num].grievance);
             printf("Likelihood: %.2f\n", agents[agent_num].likelihood);
             printf("State: %c\n", agents[agent_num].state);
             printf("Position: (%d, %d)\n", agents[agent_num].x, agents[agent_num].y);
@@ -39,23 +39,24 @@ void print_agent(Agent *agents, int agent_id){
 
 int main(){
     Agent agents[5];
+    int num_agents = 5;
     int agent_id = -1;
-    create_agents(agents, agent_id);
+    create_agents(agents, num_agents);
 
-    printf("%u\n", agents[0].x);
-
+    //printf("%u\n", agents[0].x);
+    print_agent(agents, agent_id, num_agents);
     return 0;
 }
 
-void print_agent(Agent *agents, int agent_id){
-    int num_agents = sizeof(agents) / sizeof(agents[0]);
+// void print_agent(Agent *agents, int agent_id){
+//     int num_agents = sizeof(agents) / sizeof(agents[0]);
 
-    if (agent_id == -1){
-        for (int agent_num; agent_num < num_agents; agent_num++){
-            printf("ID: %d\n", agents[agent_num].grievance);
-            printf("Likelihood: %.2f\n", agents[agent_num].likelihood);
-            printf("State: %c\n", agents[agent_num].state);
-            printf("Position: (%d, %d)\n", agents[agent_num].x, agents[agent_num].y);
-        }
-    }
-}
+//     if (agent_id == -1){
+//         for (int agent_num; agent_num < num_agents; agent_num++){
+//             printf("ID: %.2f\n", agents[agent_num].grievance);
+//             printf("Likelihood: %.2f\n", agents[agent_num].likelihood);
+//             printf("State: %c\n", agents[agent_num].state);
+//             printf("Position: (%d, %d)\n", agents[agent_num].x, agents[agent_num].y);
+//         }
+//     }
+// }
