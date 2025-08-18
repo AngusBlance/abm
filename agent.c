@@ -11,6 +11,8 @@ typedef struct{
     AgentState state;
     float likelihood;
     float grievance;
+    float legitimacy;
+    float hardship;
     float x;
     float y;
 }Agent;
@@ -22,8 +24,10 @@ void create_agents(Agent agents[], int num_agents, float LengthBoard) {
         
 
         agents[i].state = (i % 2 == 0) ? ACTIVE : INACTIVE;
-        agents[i].likelihood = (float) ( rand() )/RAND_MAX;
-        agents[i].grievance = (float) ( rand() )/RAND_MAX;
+        agents[i].likelihood = (float) (rand()) / RAND_MAX;
+        agents[i].legitimacy = (float) (rand()) / RAND_MAX;
+        agents[i].hardship = (float) (rand()) / RAND_MAX;
+        agents[i].grievance = (float) agents[i].hardship * (1 - agents[i].legitimacy);
         agents[i].x = ((float) rand() / RAND_MAX) * LengthBoard;
         agents[i].y = ((float) rand() / RAND_MAX) * LengthBoard;
     }
@@ -35,6 +39,8 @@ void print_agent(Agent *agents, int agent_id, int num_agents){
     if (agent_id == -1){
         for (int agent_num = 0; agent_num < num_agents; agent_num++){
             printf("Gerievance: %.2f\n", agents[agent_num].grievance);
+            printf("Legitamacy: %.2f\n", agents[agent_num].legitimacy);
+            printf("hardship: %.2f\n", agents[agent_num].hardship);
             printf("Likelihood: %.2f\n", agents[agent_num].likelihood);
             printf("State: %s\n", enum_to_str(agents[agent_num].state));
             printf("Position: (%.2f, %.2f)\n", agents[agent_num].x, agents[agent_num].y);
