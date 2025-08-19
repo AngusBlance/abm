@@ -3,7 +3,9 @@
 
 typedef enum {
     ACTIVE,
-    INACTIVE
+    INACTIVE,
+    POLICE,
+    ARREST,
 } AgentState;
 
 typedef struct {
@@ -15,6 +17,12 @@ typedef struct {
     float x;
     float y;
 } Agent;
+
+typedef struct{
+    AgentState state;
+    float x;
+    float y;
+} Police;
 
 void create_agents(Agent agents[], int num_agents, float LengthBoard);
 void print_agent(Agent *agents, int agent_id, int num_agents);
