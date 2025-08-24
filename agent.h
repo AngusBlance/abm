@@ -10,22 +10,17 @@ typedef enum {
 
 typedef struct {
     AgentState state;
+    float x;
+    float y;
     float likelihood;
     float grievance;
     float legitimacy;
     float hardship;
-    float x;
-    float y;
 } Agent;
 
-typedef struct{
-    AgentState state;
-    float x;
-    float y;
-} Police;
-
 void create_agents(Agent agents[], int num_agents, float LengthBoard);
-void print_agent(Agent *agents, int agent_id, int num_agents);
+void create_police(Agent police[], int num_police, float LengthBoard);
+void print_agent(Agent *agents, int agent_id, int num_agents, int num_police);
 const char* enum_to_str(AgentState state);
 
 #endif
