@@ -1,15 +1,11 @@
 #!/bin/bash
 
-# Name of the output executable
-OUT="program"
-
-# Compile all .c files in the current directory
-gcc -std=c11 *.c -o $OUT
-
-# Check if compilation succeeded
+echo "Building and running main application..."
+make main
 if [ $? -eq 0 ]; then
-    echo "Compilation successful. Running $OUT..."
-    ./$OUT
+    echo "Compilation successful. Running program..."
+    ./output/main
 else
-    echo "Compilation failed."
+    echo "Compilation failed!"
+    exit 1
 fi
