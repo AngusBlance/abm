@@ -10,6 +10,7 @@ int main() {
     int agent_id = -1;
     float LengthBoard = 10.0f;
     float vision = 5;
+    float move_dist = 1.0;
     Agent *agents = malloc(num_agents * sizeof(Agent));
     Agent *police = malloc(num_police * sizeof(Agent));
 
@@ -28,6 +29,9 @@ int main() {
     print_agent(agents, agent_id, num_agents, num_police);
     print_agent(police, agent_id, num_agents, num_police);
     arrest(agents, police, num_police, num_agents, vision);
+    
+    move(agents , num_agents, move_dist);
+    
     print_agent(agents, agent_id, num_agents, num_police);
     print_agent(police, agent_id, num_agents, num_police);
     free(agents);

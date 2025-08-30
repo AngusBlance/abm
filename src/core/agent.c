@@ -47,6 +47,7 @@ const char* enum_to_str(AgentState s) {
         case ACTIVE: return "A";
         case INACTIVE: return "I";
         case POLICE: return "P";
+	case ARREST: return "Arrest";
         default: return "UNKNOWN";
     }
 }
@@ -65,3 +66,26 @@ void print_agent(Agent *agent, int agent_id, int num_agent, int num_police){
     num_police++;
     num_police--;
 }
+
+void move(Agent *agent, int num_agent, float move_dist){
+	for (int i = 0; i < num_agent; i++){
+		float angle =  rand_float(0.0f , 360.0f); 
+		float rad = angle * (M_PI/180.0f);	
+		agent[i].x += move_dist*cos(rad);
+		agent[i].y += move_dist*sin(rad);
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
