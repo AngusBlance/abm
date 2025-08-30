@@ -76,16 +76,3 @@ void move(Agent *agent, int num_agent, float move_dist){
 	}	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
